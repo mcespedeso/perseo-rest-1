@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+                   
+
+    <changeSet id="crear-tablas-parametros" author="jdferreira">
+        <sqlFile path="sql/crear-tablas-parametros.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    <changeSet id="crear-tablas-personas" author="jdferreira">
+        <sqlFile path="sql/crear-tablas-personas.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+     <changeSet id="crear-tablas-facturacion" author="jdferreira">
+        <sqlFile path="sql/crear-tablas-facturacion.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+	<changeSet id="2019-07-12T14:00" author="jdferreira">
+		<sqlFile path="sql/2019-07-12T14:00.sql"
+			relativeToChangelogFile="true" />
+	</changeSet>
+
+  <changeSet id="crear-tablas-oauth" author="jdferreira">
+        <sqlFile path="sql/crear-tablas-oauth.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    
+   
+    
+</databaseChangeLog>
