@@ -16,7 +16,7 @@ import py.com.ideasweb.perseo.common.entities.BaseEntity;
 import py.com.ideasweb.perseo.comunes.entities.EmpresaEntity;
 
 @Entity
-@Table(name = "metodo_cobro")
+@Table(name = "metodocobro")
 public class MetodoCobroEntity extends BaseEntity {
 
     @Id

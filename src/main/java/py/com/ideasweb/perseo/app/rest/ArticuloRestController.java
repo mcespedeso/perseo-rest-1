@@ -28,7 +28,7 @@ public class ArticuloRestController {
         this.articuloService = articuloService;
     }
 
-    @GetMapping()
+   /* @GetMapping()
     public ResponseEntity<List<ArticuloLite>> getArticulos() {
         List<ArticuloLite> articulos = articuloService.findAll();
         return ResponseEntity.ok(articulos);
@@ -46,6 +46,6 @@ public class ArticuloRestController {
     public ResponseEntity<ArticuloLite> grabarArticulo(
             @RequestBody ArticuloLite articulo) {
         return ResponseEntity.ok(articuloService.grabar(articulo));
-    }
+    }*/
 
 }

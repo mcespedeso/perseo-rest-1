@@ -16,8 +16,8 @@
         <sqlFile path="sql/crear-tablas-facturacion.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-	<changeSet id="2019-07-12T14:00" author="jdferreira">
-		<sqlFile path="sql/2019-07-12T14:00.sql"
+	<changeSet id="2019-07-12T14:30" author="jdferreira">
+		<sqlFile path="sql/2019-07-12T14:30.sql"
 			relativeToChangelogFile="true" />
 	</changeSet>
 
@@ -25,6 +25,14 @@
         <sqlFile path="sql/crear-tablas-oauth.sql" relativeToChangelogFile="true"/>
     </changeSet>
     
+    <!-- Tablas ventacab y det -->
+    <changeSet id="2019-07-17T10:00" author="jdferreira">
+        <sqlFile path="sql/2019-07-17T10:00.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    <changeSet id="2019-07-17T14:00" author="jdferreira">
+        <sqlFile path="sql/2019-07-17T14:00.sql" relativeToChangelogFile="true"/>
+    </changeSet>
     
    
     

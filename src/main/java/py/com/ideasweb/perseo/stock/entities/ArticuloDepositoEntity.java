@@ -37,7 +37,7 @@ public class ArticuloDepositoEntity extends BaseEntity {
 
     @ManyToOne(targetEntity = UsuarioEntity.class)
     @JoinColumn(name = "id_usuario", nullable = false)
-    UsuarioEntity usuario;
+    private UsuarioEntity usuario;
 
     private Timestamp fechaLog;
 
@@ -71,19 +71,19 @@ public class ArticuloDepositoEntity extends BaseEntity {
 
     @ManyToOne(targetEntity = SucursalEntity.class)
     @JoinColumn(name = "id_sucursal")
-    SucursalEntity sucursal;
+    private SucursalEntity sucursal;
 
     @ManyToOne(targetEntity = ArticuloEntity.class)
-    @JoinColumn(name = "idarticulo", nullable = false)
-    ArticuloEntity articulo;;
+    @JoinColumn(name = "id_articulo", nullable = false)
+    private ArticuloEntity articulo;
 
     @ManyToOne(targetEntity = DepositoEntity.class)
     @JoinColumn(name = "id_deposito", nullable = false)
-    DepositoEntity deposito;
+    private DepositoEntity deposito;
 
     @ManyToOne(targetEntity = EmpresaEntity.class)
     @JoinColumn(name = "id_empresa")
-    EmpresaEntity empresa;
+    private EmpresaEntity empresa;
 
     public Integer getIdArticuloDeposito() {
         return idArticuloDeposito;

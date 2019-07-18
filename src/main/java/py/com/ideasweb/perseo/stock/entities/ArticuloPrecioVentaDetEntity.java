@@ -31,11 +31,11 @@ public class ArticuloPrecioVentaDetEntity {
 
     @ManyToOne(targetEntity = ArticuloPrecioVentaCabEntity.class)
     @JoinColumn(name = "id_articulo_precio_venta_cab")
-    ArticuloPrecioVentaCabEntity articuloPrecioVentaCab;
+    private ArticuloPrecioVentaCabEntity articuloPrecioVentaCab;
 
     @ManyToOne(targetEntity = ArticuloEntity.class)
     @JoinColumn(name = "id_articulo")
-    ArticuloEntity articulo;
+    private ArticuloEntity articulo;
 
     private Double precio;
 
