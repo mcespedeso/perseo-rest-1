@@ -6,7 +6,7 @@ import py.com.ideasweb.perseo.stock.dtos.ArticuloPrecioVentaCabDTO;
 
 public interface ArticuloPrecioVentaCabService {
 
-    List<ArticuloPrecioVentaCabDTO> getByEmpresa(Integer idEmpresa)
+    List<ArticuloPrecioVentaCabDTO> getByEmpresa(Integer idEmpresa, Boolean all, Boolean estado)
             throws Exception;
 
     ArticuloPrecioVentaCabDTO getById(Integer idArticuloPrecioVentaCab)

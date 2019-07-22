@@ -42,4 +42,10 @@ public class DepositoServiceImpl extends BaseServiceImpl
         return mapper.entityToDto(repo.save(mapper.dtoToEntity(dto)));
     }
 
+    @Override
+    public DepositoDTO getById(Integer idDeposito) throws Exception {
+        // TODO Auto-generated method stub
+        return mapper.entityToDto(repo.getOne(idDeposito));
+    }
+
 }

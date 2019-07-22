@@ -42,11 +42,11 @@ public class CajaEntity extends BaseEntity {
 
     @ManyToOne(targetEntity = EmpresaEntity.class)
     @JoinColumn(name = "id_empresa")
-    EmpresaEntity empresa;
+    private EmpresaEntity empresa;
 
     @ManyToOne(targetEntity = SucursalEntity.class)
     @JoinColumn(name = "id_sucursal")
-    SucursalEntity sucursal;
+    private SucursalEntity sucursal;
 
     public Integer getIdCaja() {
         return idCaja;

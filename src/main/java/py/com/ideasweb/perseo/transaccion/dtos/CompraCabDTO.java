@@ -3,6 +3,7 @@ package py.com.ideasweb.perseo.transaccion.dtos;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import py.com.ideasweb.perseo.comunes.dtos.EmpresaDTO;
 import py.com.ideasweb.perseo.comunes.dtos.ProveedorDTO;
@@ -63,6 +64,8 @@ public class CompraCabDTO implements Serializable {
     private String observaciones;
 
     private TurnoDTO turno;
+    
+    List<CompraDetDTO> detalles;
 
     public Integer getIdCompraCab() {
         return idCompraCab;
@@ -264,4 +267,13 @@ public class CompraCabDTO implements Serializable {
         this.turno = turno;
     }
 
+    public List<CompraDetDTO> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<CompraDetDTO> detalles) {
+        this.detalles = detalles;
+    }
+
+    
 }

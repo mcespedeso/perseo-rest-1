@@ -11,4 +11,7 @@ public interface ArticuloPrecioVentaDetRepository
 
     List<ArticuloPrecioVentaDetEntity> findByArticuloPrecioVentaCabIdArticuloPrecioVentaCab(
             Integer idArticuloPrecioVentaCab);
+
+    ArticuloPrecioVentaDetEntity findByArticuloPrecioVentaCabIdArticuloPrecioVentaCabAndArticuloIdArticulo(
+            Integer idArticuloPrecioVentaCab, Integer idArticulo);
 }

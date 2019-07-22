@@ -3,6 +3,7 @@ package py.com.ideasweb.perseo.transaccion.dtos;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import py.com.ideasweb.perseo.comunes.dtos.ClienteDTO;
 import py.com.ideasweb.perseo.comunes.dtos.EmpresaDTO;
@@ -64,6 +65,10 @@ public class FacturaCabDTO implements Serializable {
     private Date vigencia_Timbrado;
 
     private TurnoDTO turno;
+
+    private List<FacturaDetDTO> detalleFactura;
+
+    private List<FacturaFormaCobroDTO> listFormaPago;
 
     public Integer getIdFacturaCab() {
         return idFacturaCab;
@@ -263,6 +268,22 @@ public class FacturaCabDTO implements Serializable {
 
     public void setTurno(TurnoDTO turno) {
         this.turno = turno;
+    }
+
+    public List<FacturaDetDTO> getDetalleFactura() {
+        return detalleFactura;
+    }
+
+    public void setDetalleFactura(List<FacturaDetDTO> detalleFactura) {
+        this.detalleFactura = detalleFactura;
+    }
+
+    public List<FacturaFormaCobroDTO> getListFormaPago() {
+        return listFormaPago;
+    }
+
+    public void setListFormaPago(List<FacturaFormaCobroDTO> listFormaPago) {
+        this.listFormaPago = listFormaPago;
     }
 
 }

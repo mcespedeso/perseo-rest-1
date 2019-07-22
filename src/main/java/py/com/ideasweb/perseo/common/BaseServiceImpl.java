@@ -1,12 +1,24 @@
 package py.com.ideasweb.perseo.common;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BaseServiceImpl {
+
+    @Autowired
+    DataSource dataSource;
 
     public static final String getTemporalPass() {
         String password = "temporal";
@@ -34,7 +46,7 @@ public class BaseServiceImpl {
 
         }
     }
-    
+
     public String getUserPrincipal() {
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) SecurityContextHolder
                 .getContext().getAuthentication();
@@ -42,7 +54,52 @@ public class BaseServiceImpl {
                 .getUserAuthentication();
         return userAuthentication.getName();
     }
-    
-  
+
+    public Long getSecuenceFromName(String name) throws Exception {
+
+        Connection conn = null;
+        Long value = new Long(0);
+        try {
+            conn = dataSource.getConnection();
+
+            String seq = " select nextval('" + name + "') as seq ";
+
+            PreparedStatement ps = conn.prepareStatement(seq);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                value = rs.getLong("seq");
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return value;
+
+    }
+
+    public Long getLastSecuenceFromName(String name) throws Exception {
+        Connection conn = null;
+        Long value = new Long(0);
+        try {
+            conn = dataSource.getConnection();
+
+            String seq = " select last_value as seq from " + name;
+
+            PreparedStatement ps = conn.prepareStatement(seq);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                value = rs.getLong("seq");
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
 
 }

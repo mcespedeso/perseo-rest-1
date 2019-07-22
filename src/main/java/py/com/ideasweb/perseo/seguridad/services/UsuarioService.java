@@ -22,8 +22,9 @@ public interface UsuarioService {
 
     Boolean updatePassword(String oldPassword, String newPassword,
             Integer idUsuario);
-    
-    
+
     List<UsuarioDTO> getByEmpresa(Integer idEmpresa);
+
+    Boolean checkPassword(Integer idusuario, String password) throws Exception;
 
 }

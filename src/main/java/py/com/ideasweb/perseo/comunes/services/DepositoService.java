@@ -11,5 +11,7 @@ public interface DepositoService {
     List<DepositoDTO> getBySucursal(Integer idSucursal) throws Exception;
     
     DepositoDTO grabar(DepositoDTO dto) throws Exception;
+    
+    DepositoDTO getById(Integer idDeposito) throws Exception;
 
 }

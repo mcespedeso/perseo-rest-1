@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import py.com.ideasweb.perseo.common.BaseServiceImpl;
 import py.com.ideasweb.perseo.exceptions.ForbiddenException;
 import py.com.ideasweb.perseo.exceptions.InternalServerErrorException;
 import py.com.ideasweb.perseo.exceptions.UnknownResourceException;
@@ -35,7 +36,8 @@ import py.com.ideasweb.perseo.utilities.MD5Generator;
 
 @Service
 @Transactional
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioServiceImpl extends BaseServiceImpl
+        implements UsuarioService {
 
     private static final Logger LOG = LoggerFactory
             .getLogger(UsuarioServiceImpl.class);
@@ -210,6 +212,21 @@ public class UsuarioServiceImpl implements UsuarioService {
         // TODO Auto-generated method stub
         return userMapper.entityListToDtoList(
                 userRepository.findByEmpresaIdEmpresa(idEmpresa));
+    }
+
+    @Override
+    public Boolean checkPassword(Integer idusuario, String password)
+            throws Exception {
+        Boolean ban = false;
+        try {
+            UsuarioDTO u = getUserById(idusuario);
+            ban = checkHashPassword(u.getPassword(), password);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return ban;
     }
 
 }
