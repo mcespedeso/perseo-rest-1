@@ -1,4 +1,4 @@
-package py.com.ideasweb.perseo.sistema.entities;
+package py.com.ideasweb.perseo.seguridad.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,6 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
 
 import py.com.ideasweb.perseo.common.entities.BaseEntity;
-import py.com.ideasweb.perseo.seguridad.entities.PerfilEntity;
 
 @Entity
 @Table(name = "menu")

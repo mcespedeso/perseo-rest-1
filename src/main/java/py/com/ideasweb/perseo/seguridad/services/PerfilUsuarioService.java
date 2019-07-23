@@ -11,4 +11,7 @@ public interface PerfilUsuarioService {
     void grabar(PerfilusuarioDTO perfil);
 
     void deleteByUsuario(Integer idUsuario);
+
+    Boolean ifAsigned(PerfilusuarioDTO perfilusuario) throws Exception;
+
 }

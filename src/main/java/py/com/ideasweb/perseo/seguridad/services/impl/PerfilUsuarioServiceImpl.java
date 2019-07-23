@@ -42,4 +42,15 @@ public class PerfilUsuarioServiceImpl implements PerfilUsuarioService {
         repo.deleteByIdUsuario(idUsuario);
     }
 
+    @Override
+    public Boolean ifAsigned(PerfilusuarioDTO perfilusuario) throws Exception {
+        // TODO Auto-generated method stub
+        if (repo.findByIdUsuarioAndPerfilIdPerfil(perfilusuario.getIdUsuario(),
+                perfilusuario.getPerfil().getIdPerfil()).isPresent()) {
+
+            return true;
+        }
+        return false;
+    }
+
 }

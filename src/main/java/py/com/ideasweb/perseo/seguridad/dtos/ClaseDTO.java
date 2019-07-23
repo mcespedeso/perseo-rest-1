@@ -1,28 +1,11 @@
-package py.com.ideasweb.perseo.sistema.entities;
+package py.com.ideasweb.perseo.seguridad.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.id.enhanced.SequenceStyleGenerator;
+public class ClaseDTO implements Serializable {
 
-import py.com.ideasweb.perseo.common.entities.BaseEntity;
+    private static final long serialVersionUID = 1L;
 
-@Entity
-@Table(name = "clase")
-public class ClaseEntity extends BaseEntity {
-
-    @Id
-    @GenericGenerator(name = "claseSequenceGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name = SequenceStyleGenerator.SEQUENCE_PARAM, value = "clase_id_clase_seq"),
-            @Parameter(name = SequenceStyleGenerator.INITIAL_PARAM, value = "1"),
-            @Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1") })
-    @GeneratedValue(generator = "claseSequenceGenerator")
-    @Column(name = "id_clase")
     private Integer idClase;
 
     private String descripcion;

@@ -1,8 +1,6 @@
-package py.com.ideasweb.perseo.sistema.dtos;
+package py.com.ideasweb.perseo.seguridad.dtos;
 
 import java.io.Serializable;
-
-import py.com.ideasweb.perseo.seguridad.dtos.PerfilDTO;
 
 public class MenuDTO implements Serializable {
 

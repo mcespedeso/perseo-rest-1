@@ -1,4 +1,4 @@
-package py.com.ideasweb.perseo.sistema.mapper;
+package py.com.ideasweb.perseo.seguridad.mapper;
 
 import java.util.List;
 import java.util.Objects;
@@ -8,8 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import py.com.ideasweb.perseo.common.mapper.BaseMapper;
-import py.com.ideasweb.perseo.sistema.dtos.MenuDTO;
-import py.com.ideasweb.perseo.sistema.entities.MenuEntity;
+import py.com.ideasweb.perseo.seguridad.dtos.MenuDTO;
+import py.com.ideasweb.perseo.seguridad.entities.MenuEntity;
 
 /**
  * @author jdferreira

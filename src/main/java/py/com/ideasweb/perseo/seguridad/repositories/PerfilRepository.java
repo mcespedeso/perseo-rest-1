@@ -1,5 +1,7 @@
 package py.com.ideasweb.perseo.seguridad.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import py.com.ideasweb.perseo.seguridad.entities.PerfilEntity;
@@ -9,4 +11,5 @@ import py.com.ideasweb.perseo.seguridad.entities.PerfilEntity;
  */
 public interface PerfilRepository extends JpaRepository<PerfilEntity, Integer> {
 
+    List<PerfilEntity> findByEstado(Boolean estado);
 }
