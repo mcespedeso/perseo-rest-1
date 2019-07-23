@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import py.com.ideasweb.perseo.app.cliente.model.ClienteLite;
 import py.com.ideasweb.perseo.seguridad.dtos.UsuarioDTO;
 
 public class ClienteDTO implements Serializable {
@@ -45,6 +46,22 @@ public class ClienteDTO implements Serializable {
     private UsuarioDTO usuario;
 
     private Timestamp fechaLog;
+
+    public ClienteDTO() {
+        super();
+    }
+
+    public ClienteDTO(ClienteLite lite) {
+        super();
+        this.idCliente = lite.getIdCliente();
+        this.nombreApellido = lite.getNombreApellido();
+        this.nrodoc = lite.getNroDocumento();
+        this.direccion = lite.getDireccion();
+        this.telefono = lite.getTelefono();
+        this.tipoDocumento = new TipoDocumentoDTO(lite.getCodTipoDocumento());
+        this.lugarNacimiento = lite.getCiudad();
+        this.estado = true;
+    }
 
     public Integer getIdCliente() {
         return idCliente;

@@ -68,7 +68,7 @@ public class ClienteEntity {
     private SucursalEntity sucursal;
 
     @ManyToOne(targetEntity = UsuarioEntity.class)
-    @JoinColumn(name = "usuario_log")
+    @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
 
     private Timestamp fechaLog;

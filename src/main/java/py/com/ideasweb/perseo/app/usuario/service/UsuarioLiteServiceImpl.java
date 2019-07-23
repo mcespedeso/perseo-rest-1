@@ -55,10 +55,12 @@ public class UsuarioLiteServiceImpl extends BaseServiceImpl
     }
 
     @Override
-    public UsuarioLite grabar(UsuarioLite usuario) {
+    public UsuarioLite grabar(UsuarioLite usuario, Integer idUsuario) {
         // TODO Auto-generated method stub
-
+        UsuarioDTO owner = usuarioService.getUserById(idUsuario);
+        
         UsuarioDTO user = new UsuarioDTO(usuario);
+        user.setEmpresa(owner.getEmpresa());
 
         if (usuario.getPassword() != null) {
             user.setPasswordApp(usuario.getPassword());

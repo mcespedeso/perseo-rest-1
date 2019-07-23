@@ -1,5 +1,8 @@
 package py.com.ideasweb.perseo.app.cliente.model;
 
+import py.com.ideasweb.perseo.comunes.dtos.ClienteDTO;
+import py.com.ideasweb.perseo.comunes.dtos.TipoDocumentoDTO;
+
 public class ClienteLite {
 
     private Integer idCliente;
@@ -13,6 +16,27 @@ public class ClienteLite {
     private String barrio;
     private String coordenadas;
     private Integer idEmpresa;
+
+    
+    
+    public ClienteLite() {
+        super();
+    }
+    
+    
+
+    public ClienteLite(ClienteDTO dto) {
+        super();
+        this.idCliente = dto.getIdCliente();
+        this.nombreApellido = dto.getNombreApellido();
+        this.codTipoDocumento = dto.getTipoDocumento().getCodTipoDoc();
+        this.nroDocumento = dto.getNrodoc();
+        this.direccion = dto.getDireccion();
+        this.telefono = dto.getTelefono();
+        this.ciudad = dto.getLugarNacimiento();
+    }
+
+
 
     public Integer getIdCliente() {
         return idCliente;

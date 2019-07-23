@@ -28,11 +28,11 @@ public class UsuarioRestController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping()
+    /*@GetMapping()
     public ResponseEntity<List<UsuarioLite>> getUsuarios() {
         List<UsuarioLite> usuarios = usuarioService.findAll();
         return ResponseEntity.ok(usuarios);
-    }
+    }*/
 
     @GetMapping("/empresa/{idEmpresa}")
     public ResponseEntity<List<UsuarioLite>> getArticulosByEmpresa(
@@ -42,10 +42,12 @@ public class UsuarioRestController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @PostMapping()
-    public ResponseEntity<UsuarioLite> grabarUsuario(@RequestBody UsuarioLite usuario) {
+    @PostMapping("/{idUsuario}")
+    public ResponseEntity<UsuarioLite> grabarUsuario(
+            @PathVariable("idUsuario") Integer idUsuario,
+            @RequestBody UsuarioLite usuario) {
         LOG.info("Grabando el usuario : " + usuario.toString());
-        return ResponseEntity.ok(usuarioService.grabar(usuario));
+        return ResponseEntity.ok(usuarioService.grabar(usuario, idUsuario));
     }
 
 }

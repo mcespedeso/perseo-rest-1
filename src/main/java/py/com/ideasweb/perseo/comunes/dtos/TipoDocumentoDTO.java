@@ -12,6 +12,15 @@ public class TipoDocumentoDTO implements Serializable {
 
     private Boolean estado;
 
+    public TipoDocumentoDTO() {
+        super();
+    }
+
+    public TipoDocumentoDTO(String codTipoDoc) {
+        super();
+        this.codTipoDoc = codTipoDoc;
+    }
+
     public String getCodTipoDoc() {
         return codTipoDoc;
     }

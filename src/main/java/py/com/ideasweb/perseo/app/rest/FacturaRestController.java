@@ -23,7 +23,7 @@ public class FacturaRestController {
 
     private static final Logger LOG = LoggerFactory
             .getLogger(FacturaRestController.class);
-    
+
     private FacturaLiteService facturaService;
 
     public FacturaRestController(FacturaLiteService facturaService) {
@@ -43,10 +43,12 @@ public class FacturaRestController {
         return ResponseEntity.ok(facturas);
     }
 
-    @PostMapping("/grabar-lista")
-    public ResponseEntity addPedidos(@RequestBody List<FacturaLitecab> facturas) {
+    @PostMapping("/grabar-lista/{idUsuario}")
+    public ResponseEntity addPedidos(
+            @PathVariable("idUsuario") Integer idUsuario,
+            @RequestBody List<FacturaLitecab> facturas) {
         try {
-            facturaService.addFacturas(facturas);
+            facturaService.addFacturas(facturas, idUsuario);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -55,10 +57,12 @@ public class FacturaRestController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping()
-    public ResponseEntity addPedido(@RequestBody FacturaLitecab factura) {
+    @PostMapping("/{idUsuario}")
+    public ResponseEntity addPedido(
+            @PathVariable("idUsuario") Integer idUsuario,
+            @RequestBody FacturaLitecab factura) {
         try {
-            facturaService.addFactura(factura);
+            facturaService.addFactura(factura, idUsuario);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

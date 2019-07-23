@@ -21,6 +21,8 @@ import py.com.ideasweb.perseo.app.facturacion.model.FacturaLitecab;
 import py.com.ideasweb.perseo.app.facturacion.model.FacturaLitedet;
 import py.com.ideasweb.perseo.app.usuario.model.UsuarioLite;
 import py.com.ideasweb.perseo.app.usuario.service.UsuarioLiteService;
+import py.com.ideasweb.perseo.seguridad.dtos.UsuarioDTO;
+import py.com.ideasweb.perseo.seguridad.services.UsuarioService;
 
 @Service
 public class FacturaLiteServiceImpl implements FacturaLiteService {
@@ -29,13 +31,13 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
     DataSource dataSource;
 
     @Autowired
-    UsuarioLiteService usuarioService;
+    UsuarioService usuarioService;
 
     @Autowired
     ClienteLiteService clienteService;
 
     @Override
-    public void addFacturas(List<FacturaLitecab> facturas) throws Exception {
+    public void addFacturas(List<FacturaLitecab> facturas, Integer idUsuario) throws Exception {
 
         Connection conn = null;
 
@@ -58,7 +60,7 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
                 while (rsset.next()) {
                     idcab = rsset.getInt("id");
                 }
-                UsuarioLite user = usuarioService.getById(cab.getIdUsuario());
+                UsuarioDTO user = usuarioService.getUserById(cab.getIdUsuario());
 
                 if (cab.getIdCliente() == 0) {
                     cab.setIdCliente(clienteService
@@ -92,7 +94,7 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
                 pscab.setBoolean(15, false);
                 pscab.setNull(16, Types.TIMESTAMP);
                 pscab.setNull(16, Types.TIMESTAMP);
-                pscab.setInt(17, user.getIdEmpresa());
+                pscab.setInt(17, user.getEmpresa().getIdEmpresa());
                 pscab.setInt(18, idcab);
                 pscab.executeUpdate();
 
@@ -372,12 +374,14 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
     }
 
     @Override
-    public void addFactura(FacturaLitecab cab) throws Exception {
+    public void addFactura(FacturaLitecab cab, Integer idUsuario) throws Exception {
 
         Connection conn = null;
 
         try {
 
+            //UsuarioDTO owner = usuarioService.getUserById(idUsuario);
+                    
             conn = dataSource.getConnection();
 
             System.out.println("insertando factura..");
@@ -391,7 +395,7 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
             while (rsset.next()) {
                 idcab = rsset.getInt("id");
             }
-            UsuarioLite user = usuarioService.getById(cab.getIdUsuario());
+            UsuarioDTO user = usuarioService.getUserById(cab.getIdUsuario());
 
             if (cab.getIdCliente() == 0) {
                 cab.setIdCliente(clienteService
@@ -424,7 +428,7 @@ public class FacturaLiteServiceImpl implements FacturaLiteService {
             pscab.setBoolean(15, false);
             pscab.setNull(16, Types.TIMESTAMP);
             pscab.setNull(16, Types.TIMESTAMP);
-            pscab.setInt(17, user.getIdEmpresa());
+            pscab.setInt(17, user.getEmpresa().getIdEmpresa());
             pscab.setInt(18, idcab);
             pscab.executeUpdate();
 

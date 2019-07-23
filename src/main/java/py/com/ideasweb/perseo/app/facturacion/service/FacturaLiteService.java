@@ -6,9 +6,9 @@ import py.com.ideasweb.perseo.app.facturacion.model.FacturaLitecab;
 
 public interface FacturaLiteService {
 
-    public void addFacturas(List<FacturaLitecab> facturas) throws Exception;
+    public void addFacturas(List<FacturaLitecab> facturas, Integer idUsuario) throws Exception;
     
-    public void addFactura(FacturaLitecab facturas) throws Exception;
+    public void addFactura(FacturaLitecab facturas, Integer idUsuario) throws Exception;
 
     public List<FacturaLitecab> getFacturas(String apiKey, Integer limit)
             throws Exception;

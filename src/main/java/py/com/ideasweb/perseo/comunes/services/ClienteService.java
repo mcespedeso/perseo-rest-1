@@ -16,4 +16,8 @@ public interface ClienteService {
             throws Exception;
 
     List<ClienteDTO> getByNombres(String nombres) throws Exception;
+
+    List<ClienteDTO> getByUsuario(Integer idUsuario) throws Exception;
+
+    ClienteDTO getByDoc(String nrodoc) throws Exception;
 }

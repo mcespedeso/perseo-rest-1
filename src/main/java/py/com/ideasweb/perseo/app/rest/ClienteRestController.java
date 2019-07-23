@@ -21,39 +21,33 @@ public class ClienteRestController {
 
     private static final Logger LOG = LoggerFactory
             .getLogger(ClienteRestController.class);
-    
+
     private ClienteLiteService clienteService;
 
     public ClienteRestController(ClienteLiteService clienteService) {
         this.clienteService = clienteService;
     }
 
-    @GetMapping()
-    public ResponseEntity<List<ClienteLite>> getClientes() {
-        List<ClienteLite> cliente = clienteService.findAll();
-        return ResponseEntity.ok(cliente);
-    }
-
-    // cambiar, obtener clientes vinculados al usuario
     @GetMapping("/{idUsuario}")
     public ResponseEntity<List<ClienteLite>> getClientesByUsuario(
-            @PathVariable("idUsuario") Integer idUsuario) {
-        List<ClienteLite> cliente = clienteService.findAll();
+            @PathVariable("idUsuario") Integer idUsuario) throws Exception {
+        List<ClienteLite> cliente = clienteService.findByUsuario(idUsuario);
         return ResponseEntity.ok(cliente);
     }
 
     @GetMapping("/empresa/{idEmpresa}")
     public ResponseEntity<List<ClienteLite>> getClientesByEmpresa(
-            @PathVariable("idEmpresa") Integer idEmpresa) {
-        LOG.info("Descargando clientes para la empresa: " + idEmpresa);
+            @PathVariable("idEmpresa") Integer idEmpresa) throws Exception {
         List<ClienteLite> articulos = clienteService.findByEmpresa(idEmpresa);
         return ResponseEntity.ok(articulos);
     }
 
-    @PostMapping()
-    public ResponseEntity<ClienteLite> grabarCliente(@RequestBody ClienteLite cliente) {
+    @PostMapping("/{idUsuario}")
+    public ResponseEntity<ClienteLite> grabarCliente(
+            @PathVariable("idUsuario") Integer idUsuario,
+            @RequestBody ClienteLite cliente) throws Exception {
 
-        return ResponseEntity.ok(clienteService.grabar(cliente));
+        return ResponseEntity.ok(clienteService.grabar(cliente, idUsuario));
     }
 
 }

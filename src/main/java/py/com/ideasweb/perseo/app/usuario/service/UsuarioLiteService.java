@@ -12,6 +12,6 @@ public interface UsuarioLiteService {
     
     UsuarioLite getById(Integer idUsuario);
     
-    UsuarioLite grabar(UsuarioLite usuario);
+    UsuarioLite grabar(UsuarioLite usuario, Integer idUsuario);
 
 }

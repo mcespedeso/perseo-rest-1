@@ -23,36 +23,50 @@ public class ClienteServiceImpl extends BaseServiceImpl
 
     @Override
     public List<ClienteDTO> getByEmpresa(Integer idEmpresa) throws Exception {
-        // TODO Auto-generated method stub
+
         return mapper
                 .entityListToDtoList(repo.findByEmpresaIdEmpresa(idEmpresa));
     }
 
     @Override
     public ClienteDTO getById(Integer idCliente) throws Exception {
-        // TODO Auto-generated method stub
+
         return mapper.entityToDto(repo.findById(idCliente).get());
     }
 
     @Override
     public ClienteDTO grabar(ClienteDTO cliente) throws Exception {
-        // TODO Auto-generated method stub
+
         return mapper.entityToDto(repo.save(mapper.dtoToEntity(cliente)));
     }
 
     @Override
     public List<ClienteDTO> getByTipoDocAndDOc(String tipodoc, String nrodoc)
             throws Exception {
-        // TODO Auto-generated method stub
+
         return mapper.entityListToDtoList(
                 repo.findByTipoDocumentoCodTipoDocAndNrodoc(tipodoc, nrodoc));
     }
 
     @Override
     public List<ClienteDTO> getByNombres(String nombres) throws Exception {
-        // TODO Auto-generated method stub
+
         return mapper.entityListToDtoList(
                 repo.findByNombreApellidoIgnoreCaseContaining(nombres));
+    }
+
+    @Override
+    public List<ClienteDTO> getByUsuario(Integer idUsuario) throws Exception {
+
+        return mapper
+                .entityListToDtoList(repo.findByUsuarioIdUsuario(idUsuario));
+    }
+
+    @Override
+    public ClienteDTO getByDoc(String nrodoc) throws Exception {
+
+        return repo.findByNrodoc(nrodoc).map(mapper::entityToDto)
+                .orElse(new ClienteDTO());
     }
 
 }

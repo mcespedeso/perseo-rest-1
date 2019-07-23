@@ -20,4 +20,6 @@ public interface ClienteRepository
 
     Optional<ClienteEntity> findByNrodoc(String nrodoc);
 
+    List<ClienteEntity> findByUsuarioIdUsuario(Integer idusuario);
+
 }

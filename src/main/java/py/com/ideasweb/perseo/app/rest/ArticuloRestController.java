@@ -32,20 +32,20 @@ public class ArticuloRestController {
     public ResponseEntity<List<ArticuloLite>> getArticulos() {
         List<ArticuloLite> articulos = articuloService.findAll();
         return ResponseEntity.ok(articulos);
-    }
+    }*/
 
-    @GetMapping("/empresa/{idEmpresa}")
+    @GetMapping("/empresa/{idUsuario}")
     public ResponseEntity<List<ArticuloLite>> getArticulosByEmpresa(
-            @PathVariable("idEmpresa") Integer idEmpresa) {
-        LOG.info("Descargando articulos para la empresa: " + idEmpresa);
-        List<ArticuloLite> articulos = articuloService.findByEmpresa(idEmpresa);
+            @PathVariable("idEmpresa") Integer idUsuario) throws Exception {
+        List<ArticuloLite> articulos = articuloService.findByEmpresa(idUsuario);
         return ResponseEntity.ok(articulos);
     }
 
-    @PostMapping()
+    @PostMapping("/{idUsuario}")
     public ResponseEntity<ArticuloLite> grabarArticulo(
-            @RequestBody ArticuloLite articulo) {
-        return ResponseEntity.ok(articuloService.grabar(articulo));
-    }*/
+            @PathVariable("idUsuario") Integer idUsuario,
+            @RequestBody ArticuloLite articulo) throws Exception {
+        return ResponseEntity.ok(articuloService.grabar(articulo, idUsuario));
+    }
 
 }
