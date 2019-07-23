@@ -220,4 +220,14 @@ public class ArticuloDepositoServiceImpl extends BaseServiceImpl
         return list;
     }
 
+    @Override
+    public ArticuloDepositoDTO actualizarStock(Integer idArticuloDeposito,
+            Double cantidad) throws Exception {
+        // TODO Auto-generated method stub
+        
+        ArticuloDepositoDTO dto = getByID(idArticuloDeposito);
+        dto.setCantidad(dto.getCantidad() + cantidad);
+        return dto;
+    }
+
 }

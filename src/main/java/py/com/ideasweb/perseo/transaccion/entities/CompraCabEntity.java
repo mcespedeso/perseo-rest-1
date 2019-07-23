@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -295,6 +296,11 @@ public class CompraCabEntity extends BaseEntity {
 
     public void setTurno(TurnoEntity turno) {
         this.turno = turno;
+    }
+    
+    @PrePersist
+    public void preSave() {
+        this.fechaLog = new Timestamp(System.currentTimeMillis());
     }
 
 }

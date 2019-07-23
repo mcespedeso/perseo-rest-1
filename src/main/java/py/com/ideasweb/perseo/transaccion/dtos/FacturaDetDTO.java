@@ -18,9 +18,9 @@ public class FacturaDetDTO implements Serializable {
 
     private Double exenta;
 
-    private Double grabada5;
+    private Double gravada5;
 
-    private Double grabada10;
+    private Double gravada10;
 
     private Double iva5;
 
@@ -76,20 +76,20 @@ public class FacturaDetDTO implements Serializable {
         this.exenta = exenta;
     }
 
-    public Double getGrabada5() {
-        return grabada5;
+    public Double getGravada5() {
+        return gravada5;
     }
 
-    public void setGrabada5(Double grabada5) {
-        this.grabada5 = grabada5;
+    public void setGravada5(Double grabada5) {
+        this.gravada5 = grabada5;
     }
 
-    public Double getGrabada10() {
-        return grabada10;
+    public Double getGravada10() {
+        return gravada10;
     }
 
-    public void setGrabada10(Double grabada10) {
-        this.grabada10 = grabada10;
+    public void setGravada10(Double grabada10) {
+        this.gravada10 = grabada10;
     }
 
     public Double getIva5() {

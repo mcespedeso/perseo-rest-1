@@ -12,6 +12,15 @@ public class ConceptoMovDTO implements Serializable {
 
     private String tipo;
 
+    public ConceptoMovDTO() {
+        super();
+    }
+
+    public ConceptoMovDTO(Integer idConceptoMov) {
+        super();
+        this.idConceptoMov = idConceptoMov;
+    }
+
     public Integer getIdConceptoMov() {
         return idConceptoMov;
     }

@@ -34,6 +34,11 @@
         <sqlFile path="sql/2019-07-17T14:00.sql" relativeToChangelogFile="true"/>
     </changeSet>
     
+    
+    <changeSet id="2019-07-22T22:00" author="jdferreira">
+        <sqlFile path="sql/2019-07-22T22:00.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
    
     
 </databaseChangeLog>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import py.com.ideasweb.perseo.seguridad.dtos.UsuarioDTO;
 import py.com.ideasweb.perseo.transaccion.dtos.FacturaCabDTO;
+import py.com.ideasweb.perseo.transaccion.dtos.VentaCabDTO;
 
 public interface FacturaCabService {
 
@@ -20,6 +21,18 @@ public interface FacturaCabService {
     List<FacturaCabDTO> getByturno(Integer idturno) throws Exception;
 
     FacturaCabDTO grabar(FacturaCabDTO factura) throws Exception;
-    
+
     FacturaCabDTO getById(Integer idFacturaCab) throws Exception;
+
+    // movi de venta
+    String registrarVentaRapida(VentaCabDTO ventaCab, UsuarioDTO usuario)
+            throws Exception;
+
+    String getLibroIvaVentaContable(String datos, UsuarioDTO usuario)
+            throws Exception;
+
+    String imprimirTicket(FacturaCabDTO facturaCab, UsuarioDTO usuario)
+            throws Exception;
+
+    String imprimirNormal(FacturaCabDTO facturaCab) throws Exception;
 }

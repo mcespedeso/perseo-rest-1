@@ -10,6 +10,15 @@ public class EstadoVentaDTO implements Serializable {
 
     private String descripcion;
 
+    public EstadoVentaDTO() {
+        super();
+    }
+
+    public EstadoVentaDTO(Integer idEstadoVenta) {
+        super();
+        this.idEstadoVenta = idEstadoVenta;
+    }
+
     public Integer getIdEstadoVenta() {
         return idEstadoVenta;
     }

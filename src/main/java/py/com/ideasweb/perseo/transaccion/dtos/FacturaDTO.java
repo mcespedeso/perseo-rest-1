@@ -12,8 +12,6 @@ public class FacturaDTO implements Serializable {
 
     private Integer idFactura;
 
-    private String estado;
-
     private CajaDTO caja;
 
     private Integer establecimiento;
@@ -40,14 +38,6 @@ public class FacturaDTO implements Serializable {
 
     public void setIdFactura(Integer idFactura) {
         this.idFactura = idFactura;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public CajaDTO getCaja() {

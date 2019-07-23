@@ -10,6 +10,7 @@ import py.com.ideasweb.perseo.app.usuario.model.UsuarioLite;
 import py.com.ideasweb.perseo.comunes.dtos.DepositoDTO;
 import py.com.ideasweb.perseo.comunes.dtos.EmpresaDTO;
 import py.com.ideasweb.perseo.comunes.dtos.SucursalDTO;
+import py.com.ideasweb.perseo.tesoreria.dtos.CajaDTO;
 
 public class UsuarioDTO implements Serializable {
 
@@ -44,15 +45,13 @@ public class UsuarioDTO implements Serializable {
 
     private Timestamp fechaLog;
 
+    private CajaDTO caja;
+
     private List<PerfilusuarioDTO> perfiles;
-    
-    
 
     public UsuarioDTO() {
         super();
     }
-    
-    
 
     public UsuarioDTO(UsuarioLite user) {
         super();
@@ -69,8 +68,6 @@ public class UsuarioDTO implements Serializable {
         this.deposito = new DepositoDTO(user.getIdDeposito());
         this.perfiles = user.getPerfiles();
     }
-
-
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -190,6 +187,14 @@ public class UsuarioDTO implements Serializable {
 
     public void setPerfiles(List<PerfilusuarioDTO> perfiles) {
         this.perfiles = perfiles;
+    }
+
+    public CajaDTO getCaja() {
+        return caja;
+    }
+
+    public void setCaja(CajaDTO caja) {
+        this.caja = caja;
     }
 
 }

@@ -16,7 +16,7 @@ import py.com.ideasweb.perseo.common.entities.BaseEntity;
 
 @Entity
 @Table(name = "orden_pago_det")
-public class OrdenPagoDetEntity extends BaseEntity{
+public class OrdenPagoDetEntity extends BaseEntity {
 
     @Id
     @GenericGenerator(name = "ordenPagoDetSequenceGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
@@ -33,7 +33,7 @@ public class OrdenPagoDetEntity extends BaseEntity{
 
     @ManyToOne(targetEntity = OrdenPagoCabEntity.class)
     @JoinColumn(name = "id_orden_pago_cab")
-    private OrdenPagoCabEntity ordenpagocab;
+    private OrdenPagoCabEntity ordenPagoCab;
 
     public Integer getIdOrdenPagoDet() {
         return idOrdenPagoDet;
@@ -59,12 +59,12 @@ public class OrdenPagoDetEntity extends BaseEntity{
         this.concepto = concepto;
     }
 
-    public OrdenPagoCabEntity getOrdenpagocab() {
-        return ordenpagocab;
+    public OrdenPagoCabEntity getOrdenPagoCab() {
+        return ordenPagoCab;
     }
 
-    public void setOrdenpagocab(OrdenPagoCabEntity ordenpagocab) {
-        this.ordenpagocab = ordenpagocab;
+    public void setOrdenPagoCab(OrdenPagoCabEntity ordenPagoCab) {
+        this.ordenPagoCab = ordenPagoCab;
     }
 
 }

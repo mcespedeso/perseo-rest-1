@@ -27,4 +27,7 @@ public interface ArticuloDepositoService {
     List<HistoricoArticuloDTO> getByTurno(Integer idturno,
             UsuarioDTO usuarioDTO) throws Exception;
 
+    ArticuloDepositoDTO actualizarStock(Integer idArticuloDeposito,
+            Double cantidad) throws Exception;
+
 }

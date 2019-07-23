@@ -33,8 +33,6 @@ public class FacturaEntity extends BaseEntity {
     @Column(name = "id_factura")
     private Integer idFactura;
 
-    private String estado;
-
     @ManyToOne(targetEntity = CajaEntity.class)
     @JoinColumn(name = "id_caja")
     private CajaEntity caja;
@@ -69,13 +67,7 @@ public class FacturaEntity extends BaseEntity {
         this.idFactura = idFactura;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+ 
 
     public CajaEntity getCaja() {
         return caja;

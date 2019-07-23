@@ -69,6 +69,16 @@ public class FacturaCabDTO implements Serializable {
     private List<FacturaDetDTO> detalleFactura;
 
     private List<FacturaFormaCobroDTO> listFormaPago;
+    
+    private Double iva5;
+    
+    private Double iva10;
+    
+    private Double exenta;
+    
+    private Double gravada5;
+    
+    private Double gravada10;
 
     public Integer getIdFacturaCab() {
         return idFacturaCab;
@@ -285,5 +295,47 @@ public class FacturaCabDTO implements Serializable {
     public void setListFormaPago(List<FacturaFormaCobroDTO> listFormaPago) {
         this.listFormaPago = listFormaPago;
     }
+
+    public Double getIva5() {
+        return iva5;
+    }
+
+    public void setIva5(Double iva5) {
+        this.iva5 = iva5;
+    }
+
+    public Double getIva10() {
+        return iva10;
+    }
+
+    public void setIva10(Double iva10) {
+        this.iva10 = iva10;
+    }
+
+    public Double getExenta() {
+        return exenta;
+    }
+
+    public void setExenta(Double exenta) {
+        this.exenta = exenta;
+    }
+
+    public Double getGravada5() {
+        return gravada5;
+    }
+
+    public void setGravada5(Double gravada5) {
+        this.gravada5 = gravada5;
+    }
+
+    public Double getGravada10() {
+        return gravada10;
+    }
+
+    public void setGravada10(Double gravada10) {
+        this.gravada10 = gravada10;
+    }
+    
+    
 
 }

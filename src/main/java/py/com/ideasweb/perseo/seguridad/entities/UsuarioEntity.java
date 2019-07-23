@@ -22,6 +22,7 @@ import py.com.ideasweb.perseo.common.entities.BaseEntity;
 import py.com.ideasweb.perseo.comunes.entities.DepositoEntity;
 import py.com.ideasweb.perseo.comunes.entities.EmpresaEntity;
 import py.com.ideasweb.perseo.comunes.entities.SucursalEntity;
+import py.com.ideasweb.perseo.tesoreria.entities.CajaEntity;
 
 @Entity
 @Table(name = "usuario")
@@ -72,6 +73,10 @@ public class UsuarioEntity extends BaseEntity {
     @ManyToOne(targetEntity = UsuarioEntity.class)
     @JoinColumn(name = "usuario_log")
     UsuarioEntity usuarioLog;
+
+    @ManyToOne(targetEntity = CajaEntity.class)
+    @JoinColumn(name = "id_caja")
+    CajaEntity caja;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -191,6 +196,14 @@ public class UsuarioEntity extends BaseEntity {
 
     public void setUsuarioLog(UsuarioEntity usuarioLog) {
         this.usuarioLog = usuarioLog;
+    }
+
+    public CajaEntity getCaja() {
+        return caja;
+    }
+
+    public void setCaja(CajaEntity caja) {
+        this.caja = caja;
     }
 
     @Override
