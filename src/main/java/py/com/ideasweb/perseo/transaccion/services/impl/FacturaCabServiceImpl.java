@@ -313,7 +313,7 @@ public class FacturaCabServiceImpl extends BaseServiceImpl
         JSONObject params = new JSONObject(datos);
 
         DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
+//        Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
 
         Integer idcliente = params.getInt("idcliente");
         Integer puntoexpedicion = params.getInt("puntoexpedicion");
