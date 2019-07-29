@@ -46,11 +46,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(
                         "Nombre de usuario no se encuentra " + username));
 
-        List<UsuarioRoleEntity> roles = userRoleRepo.findByUsuario(user);
+        LOG.info("user son " + user.toString());
+        
+        List<UsuarioRoleEntity> roles = userRoleRepo.findByLogin(user.getLogin());
+        
+//        List<UsuarioRoleEntity> roles = userRoleRepo.findByUser(user.getIdUsuario());
+        
+//        List<UsuarioRoleEntity> roles = new ArrayList<UsuarioRoleEntity>();
+//        UsuarioRoleEntity ur = new UsuarioRoleEntity();
+//        ur.setUsuario(user);
+//        ur.setRoles(new RolesEntity(1 , "ADMIN"));
+//        
+//        roles.add(ur);
+        
+        LOG.info("roles son " + roles.size());
 
         return UserDetailsDTO.builder().login(user.getLogin())
                 .activo(user.isActivo()).password(user.getPassword())
-                .passwordApp(user.getPasswordApp())
+                .password(user.getPassword())
                 .idUsuario(user.getIdUsuario().intValue())
                 .grantedAuthorities(this.getGrantedAuthorities(roles)).build();
     }
@@ -60,7 +73,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (UsuarioRoleEntity role : roles) {
             authorities
-                    .add(new SimpleGrantedAuthority(role.getRoles().getRole()));
+                    .add(new SimpleGrantedAuthority(role.getRole()));
         }
         return authorities;
     }

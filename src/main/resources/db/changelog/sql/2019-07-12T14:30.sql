@@ -1,5 +1,3 @@
-
-
 alter table usuario rename column password_web to password_app;
 
 alter table empresa add column prefijo character varying(3);

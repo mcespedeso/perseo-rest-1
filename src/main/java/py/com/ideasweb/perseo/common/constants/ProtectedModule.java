@@ -24,12 +24,12 @@ public enum ProtectedModule implements ProtectableModule {
                 API_ROOT + "/people", API_ROOT + "/people/**", };
 
         private String[] readRoles = {
-                Role.ROLE_ADMIN.getSecurityName(),
-                Role.ROLE_USER.getSecurityName() };
+                Role.ADMIN.getSecurityName(),
+                Role.USER.getSecurityName() };
 
         private String[] writeRoles = {
-                Role.ROLE_ADMIN.getSecurityName(),
-                Role.ROLE_USER.getSecurityName() };
+                Role.ADMIN.getSecurityName(),
+                Role.USER.getSecurityName() };
 
         @Override
         public String[] getUrls() {
@@ -53,11 +53,11 @@ public enum ProtectedModule implements ProtectableModule {
                 API_ROOT + "/snapshots", API_ROOT + "/snapshots/**" };
 
         private String[] readRoles = {
-                Role.ROLE_ADMIN.getSecurityName(),
-                Role.ROLE_USER.getSecurityName() };
+                Role.ADMIN.getSecurityName(),
+                Role.USER.getSecurityName() };
 
         private String[] writeRoles = {
-                Role.ROLE_ADMIN.getSecurityName() };
+                Role.ADMIN.getSecurityName() };
 
         @Override
         public String[] getUrls() {

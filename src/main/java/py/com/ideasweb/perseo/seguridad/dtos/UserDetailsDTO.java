@@ -6,34 +6,44 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import py.com.ideasweb.perseo.comunes.dtos.EmpresaDTO;
+
 /**
  * Created by mcespedes
  */
 public class UserDetailsDTO implements UserDetails {
 
     private final String password;
-    private final String passwordApp;
     private final String login;
     private final boolean activo;
     private final int idUsuario;
+    private final UsuarioDTO usuario;
     private final List<GrantedAuthority> grantedAuthorities;
 
-    UserDetailsDTO(String passwordApp, String password, String login,
-            boolean activo, int idUsuario,
-            List<GrantedAuthority> grantedAuthorities) {
-        this.passwordApp = passwordApp;
+    UserDetailsDTO(
+    		String password, 
+    		String login,
+            boolean activo, 
+            int idUsuario,
+            List<GrantedAuthority> grantedAuthorities,
+            UsuarioDTO usuario) {
         this.password = password;
         this.login = login;
         this.activo = activo;
         this.idUsuario = idUsuario;
         this.grantedAuthorities = grantedAuthorities;
+        this.usuario = usuario;
     }
 
     public static UserDetailsDTOBuilder builder() {
         return new UserDetailsDTOBuilder();
     }
 
-    @Override
+    public UsuarioDTO getUsuario() {
+		return usuario;
+	}
+
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.grantedAuthorities;
     }
@@ -68,10 +78,6 @@ public class UserDetailsDTO implements UserDetails {
     @Override
     public boolean isEnabled() {
         return activo;
-    }
-
-    public String getPasswordApp() {
-        return passwordApp;
     }
 
     public boolean isActivo() {

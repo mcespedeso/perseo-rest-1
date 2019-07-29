@@ -4,18 +4,21 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import py.com.ideasweb.perseo.seguridad.entities.UsuarioEntity;
 import py.com.ideasweb.perseo.seguridad.entities.UsuarioRoleEntity;
 
 /**
  * Created by jdferreira
  */
 public interface UserRoleRepository
-        extends JpaRepository<UsuarioRoleEntity, Integer> {
+        extends JpaRepository<UsuarioRoleEntity, Long> {
 
-    List<UsuarioRoleEntity> findByUsuario(UsuarioEntity usuario);
+	List<UsuarioRoleEntity> findByLogin(String login);
 
-    UsuarioRoleEntity findByUsuarioIdUsuario(Integer idUsuario);
+    //UsuarioRoleEntity findByUsuarioIdUsuario(Integer idUsuario);
     
-    void deleteByUsuarioIdUsuario(Integer idUsuario);
+    void deleteByLogin(String login);
+    
+//    @Query(value = "select * from usuario_x_role where id_usuario = :idUsuario", nativeQuery = true)
+//    List<UsuarioRoleEntity> findByUser(
+//            @Param("idUsuario") Integer idUsuario);
 }

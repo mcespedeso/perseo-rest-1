@@ -4,9 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -28,23 +27,23 @@ public class UsuarioRoleEntity extends BaseEntity {
     @Column(name = "id_usuario_x_role")
     private Long id;
 
-    @ManyToOne(targetEntity = UsuarioEntity.class)
-    @JoinColumn(name = "id_usuario")
-    private UsuarioEntity usuario;
+    @NotNull
+	@Column(name = "role")
+	private String role;
+    
+    @NotNull
+   	@Column(name = "login")
+   	private String login;
+    
+    public String getLogin() {
+		return login;
+	}
 
-    @ManyToOne(targetEntity = RolesEntity.class)
-    @JoinColumn(name = "id_role")
-    private RolesEntity roles;
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-    public UsuarioEntity getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
-    }
-
-    public Long getId() {
+	public Long getId() {
         return id;
     }
 
@@ -52,21 +51,15 @@ public class UsuarioRoleEntity extends BaseEntity {
         this.id = id;
     }
 
-    public RolesEntity getRoles() {
-        return roles;
-    }
+    public String getRole() {
+		return role;
+	}
 
-    public void setRoles(RolesEntity roles) {
-        this.roles = roles;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-    @Override
-    public String toString() {
-        return "UsuarioRoleEntity [id=" + id + ", user=" + usuario + ", role="
-                + roles + "]";
-    }
-
-    @Override
+	@Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

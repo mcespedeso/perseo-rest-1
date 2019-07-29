@@ -24,8 +24,7 @@ public class ArticuloServiceImpl extends BaseServiceImpl
     ArticuloRepository repo;
 
     @Override
-    public List<ArticuloDTO> getByEmpresa(Integer idEmpresa) throws Exception {
-        // TODO Auto-generated method stub
+    public List<ArticuloDTO> getByEmpresa(Integer idEmpresa) {
         return mapper
                 .entityListToDtoList(repo.findByEmpresaIdEmpresa(idEmpresa));
     }

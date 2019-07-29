@@ -5,12 +5,17 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 
 public class UserDetailsDTOBuilder {
-    private String passwordApp;
     private String password;
     private String login;
     private boolean activo;
     private int idUsuario;
+    private UsuarioDTO usuario;
     private List<GrantedAuthority> grantedAuthorities;
+    
+    public UserDetailsDTOBuilder usuario(UsuarioDTO usuario) {
+    	this.usuario = usuario;
+    	return this;
+    }
 
     public UserDetailsDTOBuilder login(String login) {
         this.login = login;
@@ -32,10 +37,7 @@ public class UserDetailsDTOBuilder {
         return this;
     }
 
-    public UserDetailsDTOBuilder passwordApp(String passwordApp) {
-        this.passwordApp = passwordApp;
-        return this;
-    }
+  
 
     public UserDetailsDTOBuilder grantedAuthorities(
             List<GrantedAuthority> grantedAuthorities) {
@@ -44,7 +46,7 @@ public class UserDetailsDTOBuilder {
     }
 
     public UserDetailsDTO build() {
-        return new UserDetailsDTO(passwordApp, password, login, activo,
-                idUsuario, grantedAuthorities);
+        return new UserDetailsDTO(password, login, activo,
+                idUsuario, grantedAuthorities, usuario);
     }
 }

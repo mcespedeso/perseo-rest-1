@@ -2,46 +2,44 @@ package py.com.ideasweb.perseo.seguridad.dtos;
 
 import com.google.common.base.MoreObjects;
 
-import py.com.ideasweb.perseo.seguridad.constants.Role;
-
 public class UsuarioRoleDTO {
 
 	private Long userRoleId;
 
-	private UsuarioDTO user;
+	private String login;
 
-	private Role role;
+	private String role;
 	
 	public UsuarioRoleDTO(){}
 	
-	private UsuarioRoleDTO(Long userRoleId, UsuarioDTO user, Role role) {
+	private UsuarioRoleDTO(Long userRoleId, String login, String role) {
 		this.userRoleId = userRoleId;
-		this.user = user;
+		this.login = login;
 		this.role = role;
 	}
 	
 	public static class Builder {
 		private Long userRoleId;
-		private UsuarioDTO user;
-		private Role role;
+		private String login;
+		private String role;
 		
 		public Builder userRoleId(Long userRoleId) {
 			this.userRoleId = userRoleId;
 			return this;
 		}
 		
-		public Builder user(UsuarioDTO user) {
-			this.user = user;
+		public Builder user(String login) {
+			this.login = login;
 			return this;
 		}
 		
-		public Builder role(Role role) {
+		public Builder role(String role) {
 			this.role = role;
 			return this;
 		}
 		
 		public UsuarioRoleDTO build() {
-			return new UsuarioRoleDTO(userRoleId, user, role);
+			return new UsuarioRoleDTO(userRoleId, login, role);
 		}
 	}
 	
@@ -57,19 +55,19 @@ public class UsuarioRoleDTO {
 		this.userRoleId = userRoleId;
 	}
 
-	public UsuarioDTO getUser() {
-		return user;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUser(UsuarioDTO user) {
-		this.user = user;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
@@ -77,7 +75,7 @@ public class UsuarioRoleDTO {
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
 				.add("userRoleId", userRoleId)
-				.add("user", user)
+				.add("login", login)
 				.add("role", role)
 				.toString();
 	}

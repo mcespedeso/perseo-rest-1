@@ -1,7 +1,6 @@
 package py.com.ideasweb.perseo.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -24,8 +23,8 @@ public class OAuth2ResourceServerConfig
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests().antMatchers("/administracion/**")
-                .hasRole(Role.ROLE_ADMIN.getSecurityName())
+        http.authorizeRequests().antMatchers("/api/**")
+                .hasRole(Role.ADMIN.getSecurityName())
                 
                 // Organizations related resources
                 // .antMatchers(ProtectedModule.PACIENTE.getUrls()).hasAnyRole(ProtectedModule.ORGANIZATIONS.getWriteRoles())

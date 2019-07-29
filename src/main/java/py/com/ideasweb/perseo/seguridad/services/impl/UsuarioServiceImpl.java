@@ -85,11 +85,11 @@ public class UsuarioServiceImpl extends BaseServiceImpl
         UsuarioEntity newUser = userRepository.save(user);
 
         // insertar user roles, USUARIO
-        userRoleRepository.deleteByUsuarioIdUsuario(newUser.getIdUsuario());
+        userRoleRepository.deleteByLogin(newUser.getLogin());
         RolesEntity roleUser = roleRepo.getOne(2);
         UsuarioRoleEntity uRoleUser = new UsuarioRoleEntity();
-        uRoleUser.setRoles(roleUser);
-        uRoleUser.setUsuario(newUser);
+        //uRoleUser.setRoles(roleUser);
+        //uRoleUser.setUsuario(newUser);
         userRoleRepository.save(uRoleUser);
 
         // insertar perfiles

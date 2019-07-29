@@ -7,12 +7,12 @@ public enum Role {
     /**
      * Puede hacer de todo
      */
-    ROLE_ADMIN,
+    ADMIN,
 
     /**
      * Maneja servicios basicos para el usuario
      */
-    ROLE_USER;
+    USER;
 
     private static final String SEPARATOR = "_";
     private static final String PREFIX = "ROLE";

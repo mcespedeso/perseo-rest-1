@@ -1,27 +1,10 @@
-
-CREATE TABLE roles (
-	  id_role bigserial PRIMARY KEY,
-	  role character varying (50)
-);
-
-INSERT INTO roles (role) values ('ROLE_ADMIN');
-INSERT INTO roles (role) values ('ROLE_USER');
-
 CREATE TABLE usuario_x_role (
 	  id_usuario_x_role bigserial PRIMARY KEY,
-	  id_usuario bigint,
-	  id_role bigint
+	  login varchar(50),
+	  role varchar(50)
 );
 
-alter table usuario_x_role 
-add constraint Fk_usuario_x_role_role
-foreign key (id_role) 
-references roles (id_role);
-
-
-
 -- Este script crea las tablas para almacenar las  autenticaciones oauth2 --
-
 create table oauth_client_details (
   client_id VARCHAR(255) PRIMARY KEY,
   resource_ids VARCHAR(255),
@@ -107,23 +90,19 @@ values ('perseoWebClientIdPassword',
 		'true'
 );
 
-
-
-
 --Se inicializa el usuario admin/admin por defecto para desarrollo (cambiar para produccion)
 insert into public.usuario (login, password, password_app, activo, nombre_apellido, nro_documento, id_empresa) 
 values ('admin', '$2a$10$.5WP2FoCDb9HMVVVmlyTdeM7Pk5/GQ5U23wUZFC39C3hMXqOI2AC2', '21232f297a57a5a743894a0e4a801fc3', true , 'admin', '9999999' , 1);
 
+--Se inserta el role ADMIN para el ADMIN
+INSERT INTO usuario_x_role (login, role)
+  VALUES (
+    (SELECT login FROM usuario WHERE login = 'admin'),
+    'ADMIN');
+
 --Se inserta el role USER para el ADMIN
-INSERT INTO usuario_x_role (id_usuario, id_role)
+INSERT INTO usuario_x_role (login, role)
   VALUES (
-    (SELECT id_usuario FROM usuario WHERE login = 'admin'),
-    (SELECT id_role FROM roles WHERE role = 'ROLE_USER'));
-
-    --Se inserta el role ADMIN para el ADMIN
-INSERT INTO public.usuario_x_role (id_usuario, id_role)
-  VALUES (
-    (SELECT id_usuario FROM usuario WHERE login = 'admin'),
-    (SELECT id_role FROM roles WHERE role = 'ROLE_ADMIN'));
-
+    (SELECT login FROM usuario WHERE login = 'admin'),
+    'USER');
 
